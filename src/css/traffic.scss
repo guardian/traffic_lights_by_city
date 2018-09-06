@@ -1,0 +1,253 @@
+@import "mq";
+
+.traffic_lights_container {
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 40px;
+}
+
+.countdown_clock_container {
+	width: 100%;
+	display: none;
+}
+
+.countdown_clock {
+	font-size: 35px;
+	width: 140px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: black;
+	margin: auto;
+	text-align: center;
+	line-height: 40px;
+	padding-top: 5px;
+	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+	color: #0af362;
+}
+
+.traffic_light_container_box {
+	position: relative;
+	width: 100%;
+	display: inline-block;
+}
+
+.traffic_light_container {
+	position: relative;
+
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+
+	@include mq($until: mobileLandscape) {
+		width: calc(50% - 15px);
+	}
+
+	@include mq($from: mobileLandscape) {
+		width: calc(20% - 10px);
+	}
+}
+
+
+@include mq($from: mobileLandscape) {
+
+	.traffic_light_container:nth-child(1), .traffic_light_container:nth-child(6) {
+		margin-left: 5px;
+	}
+
+}
+
+
+
+
+.city_title_box {
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 5px;
+	text-align: center;
+	height: 40px;
+	font-size: 14px;
+	line-height: 16px;
+	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+}
+
+.city_time_box {
+	width: 100%;
+	height: 20px;
+	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+	font-size: 14px;
+	text-align: center;
+	margin-top: 5px;
+	clear: both;
+}
+
+.traffic_container {
+	width: 100%;
+	display: inline-block;
+	border-radius: 20px;
+	border: 1px solid lightgrey;
+	float: left;
+	box-sizing: border-box;
+}
+
+
+.traffic_top {
+	width: 100%;
+	height: 0px;
+	padding-bottom: 90%;
+	padding-top: 10%;
+
+}
+
+.traffic_bottom {
+	width: 100%;
+	height: 0px;
+	padding-bottom: 90%;
+}
+
+.standing_man {
+	width: 80%;
+	height: 0px;
+	padding-bottom: 80%;
+	background-color: white;
+	margin: auto;
+	border-radius: 50%;
+	border: 1px solid lightgrey;
+}
+
+.walking_man {
+	width: 80%;
+	height: 0px;
+	padding-bottom: 80%;
+	background-color: white;
+	margin: auto;
+	border-radius: 50%;
+	border: 1px solid lightgrey
+}
+
+/*! CSS Used from: Embedded */
+
+.button {
+	outline: 0;
+}
+::-moz-selection {
+	background: #ffe500;
+	color: #121212;
+}
+::selection {
+	background: #ffe500;
+	color: #121212;
+}
+/*! CSS Used from: https://assets.guim.co.uk/stylesheets/fd6f2a0f4c1807c718ff281e3b48b603/content.garnett.css ; media=screen */
+
+@media screen {
+	.button {
+		font-size: 0.8125rem;
+		line-height: 1.125rem;
+		font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		height: 1.875rem;
+		padding: 0 0.625rem;
+		margin-right: 0.625rem;
+		line-height: 1.75rem;
+		color: #fff;
+		background-color: #00b2ff;
+		border-color: #005689;
+		display: inline-block;
+		vertical-align: top;
+		width: auto;
+		font-weight: bold;
+		text-decoration: none;
+		-webkit-border-radius: 62.5rem;
+		border-radius: 62.5rem;
+		border-width: 0.0625rem;
+		border-style: solid;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		margin-bottom: 20px;
+	}
+	.button:hover, .button:focus, .button:active {
+		text-decoration: none;
+	}
+}
+/*! CSS Used from: https://assets.guim.co.uk/stylesheets/9b949eb3732143df2f623cbadefbb708/print.css ; media=print */
+
+@media print {
+	* {
+		max-width: 100%!important;
+		margin: 0!important;
+		padding: 0!important;
+		border: 0!important;
+		min-height: 0!important;
+		background-color: #ffffff!important;
+		color: #000000!important;
+	}
+}
+/*! CSS Used from: https://interactive.guim.co.uk/2017/pokie-ex-machina/1507848879202/main.css */
+
+#button {
+	z-index: 1;
+	text-align: center;
+	width: 100%;
+	box-sizing: border-box;
+}
+#button .button {
+	margin-top: 20px;
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background-color: #cc2b12;
+	border-radius: 50%;
+	transition: all 0.2s;
+	box-shadow: 0px 0px 0px 0px #800c0c, inset 0 10px 10px 0 rgba(255, 255, 255, 0.3), inset 0 -20px 20px 0 rgba(100, 100, 100, 0.1), inset 0 5px 5px 0 rgba(255, 255, 255, 0.3);
+}
+#button .button:active {
+	box-shadow: inset 0px 0px 10px 1px rgba(128, 12, 12, 0.75), inset 0 -5px 5px rgba(100, 100, 100, 0.1), inset 0 2px 2px rgba(255, 255, 255, 0.3);
+}
+#button .button:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: -12px;
+	right: -12px;
+	bottom: -12px;
+	left: -12px;
+	border-radius: inherit;
+	background: #ddd;
+	background: linear-gradient(#fff, #ddd);
+}
+
+@media (min-width: 1315px) {
+	.interactive-container .graphic-container .graphic-sections>div {
+		display: none;
+	}
+	.interactive-container .graphic-container .graphic-sections>div.active {
+		display: block;
+	}
+}
+@media (max-width: 1314px) {
+	.interactive-container .graphic-sections>div {
+		display: none;
+	}
+	.interactive-container .graphic-sections>div.active {
+		display: block;
+	}
+}
+
+
+/*
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    leftCol: 1140px,
+    wide:    1300px,
+
+    // Tweakpoints
+    desktopAd: 810px,
+    mobileLandscape: 480px
+*/
