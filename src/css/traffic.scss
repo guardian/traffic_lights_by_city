@@ -1,4 +1,23 @@
 @import "mq";
+@font-face {
+    font-family:'segment7standard';
+    src: url('<%= path %>/assets/segment7standard-webfont.woff2') format('woff2'),
+         url('<%= path %>/assets/segment7standard-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.row {
+	margin-bottom:5px; 
+}
+
+.row:after {
+	content: " "; /* Older browser do not support empty content */
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
 
 .traffic_lights_container {
 	width: 100%;
@@ -9,27 +28,41 @@
 }
 
 .countdown_clock_container {
-	width: 100%;
-	display: none;
+	float:left;
+}
+
+.labelText {
+	float: left;
+	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+#time {
+	float: left;
+	margin-top: 14px;
+    margin-left: 28px;
+}
+
+.clock {
+	font-family: 'segment7standard';
+	font-size:20px;
+/*	width:20px;
+	float: left;*/
 }
 
 .countdown_clock {
-	font-size: 35px;
 	width: 140px;
-	height: 40px;
+	height: 50px;
 	border-radius: 20px;
-	background-color: black;
+	background-color: #efefef;
 	margin: auto;
 	text-align: center;
-	line-height: 40px;
-	padding-top: 5px;
-	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-	color: #0af362;
+	color: #000;
 }
 
 .traffic_light_container_box {
 	position: relative;
-	width: 100%;
 	display: inline-block;
 }
 
@@ -59,8 +92,6 @@
 	}
 
 }
-
-
 
 
 .city_title_box {
@@ -189,34 +220,36 @@
 }
 /*! CSS Used from: https://interactive.guim.co.uk/2017/pokie-ex-machina/1507848879202/main.css */
 
+.controlsWrapper {
+}
+
 #button {
 	z-index: 1;
 	text-align: center;
-	width: 100%;
 	box-sizing: border-box;
+	float:left;
 }
 #button .button {
-	margin-top: 20px;
 	position: relative;
 	display: inline-block;
-	width: 100px;
-	height: 100px;
-	background-color: #cc2b12;
+	width: 50px;
+	height: 50px;
+    background-color: #767676;
 	border-radius: 50%;
 	transition: all 0.2s;
-	box-shadow: 0px 0px 0px 0px #800c0c, inset 0 10px 10px 0 rgba(255, 255, 255, 0.3), inset 0 -20px 20px 0 rgba(100, 100, 100, 0.1), inset 0 5px 5px 0 rgba(255, 255, 255, 0.3);
+	box-shadow: 0px 0px 0px 0px #333, inset 0 10px 10px 0 rgba(255, 255, 255, 0.3), inset 0 -20px 20px 0 rgba(100, 100, 100, 0.1), inset 0 5px 5px 0 rgba(255, 255, 255, 0.3);
 }
 #button .button:active {
-	box-shadow: inset 0px 0px 10px 1px rgba(128, 12, 12, 0.75), inset 0 -5px 5px rgba(100, 100, 100, 0.1), inset 0 2px 2px rgba(255, 255, 255, 0.3);
+	box-shadow: inset 0px 0px 10px 1px rgba(51, 51, 51, 0.75), inset 0 -5px 5px rgba(100, 100, 100, 0.1), inset 0 2px 2px rgba(255, 255, 255, 0.3);
 }
 #button .button:after {
 	content: "";
 	position: absolute;
 	z-index: -1;
-	top: -12px;
-	right: -12px;
-	bottom: -12px;
-	left: -12px;
+	top: -6px;
+	right: -6px;
+	bottom: -6px;
+	left: -6px;
 	border-radius: inherit;
 	background: #ddd;
 	background: linear-gradient(#fff, #ddd);

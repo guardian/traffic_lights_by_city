@@ -32,6 +32,46 @@ var citylights = [{
 	"wait_time" : 90
 }];
 
+
+function displayTime(time) {
+	console.log(time)
+	var seconds = Math.trunc(time);
+	var milliseconds = time % 1
+	var minutes = seconds/60;
+	var displaySeconds = "00"
+	var displayMinutes = "00"
+	var displayMilliseconds = "00"
+
+	console.log(seconds, minutes)
+
+	if (minutes >= 1) {
+		seconds = seconds - (Math.floor(minutes) * 60)
+	}
+
+	if (seconds < 10) {
+		displaySeconds = "0" + seconds
+	}
+
+	else {
+		displaySeconds = seconds
+	}
+
+	if (minutes > 1 && minutes < 10) {
+		displayMinutes = "0" + minutes.toFixed();
+	}
+
+	if (milliseconds > 0.95) {
+		milliseconds = 0;
+	}
+
+	displayMilliseconds = (milliseconds*10).toFixed();
+
+	d3.select("#time .minutes").html(displayMinutes)
+	d3.select("#time .seconds").html(displaySeconds)
+	d3.select("#time .milliseconds").html(displayMilliseconds)
+}
+
+
 export class Traffic {
 
 	constructor() {
@@ -43,12 +83,12 @@ export class Traffic {
 		this.max = 150
 
 		d3.select("#button").on("click", function() {
-			d3.select(".countdown_clock_container").style("display", "block")
-			d3.select(this).style("display", "none")
+			// d3.select(this).style("display", "none")
 			self.timer() 
 		})
 
 	}
+
 
 	timer() {
 
@@ -58,9 +98,7 @@ export class Traffic {
 
 			if (self.seconds < self.max) {
 
-				self.seconds = self.seconds + 1
-
-				
+				self.seconds = self.seconds + 1				
 
 				self.citywatch()
 
@@ -68,14 +106,15 @@ export class Traffic {
 				clearTimeout(self.clock);
 			}
 
-		}, 500);
+		}, 1000);
 
 		var t = d3.timer(function(elapsed) {
-			var display = (elapsed * 2) / 1000
-		  d3.select(".countdown_clock").html(display.toFixed(1))
+			var display = (elapsed) / 1000
+			displayTime(display);
+			
 		  if (elapsed > 150000 / 2) { 
 		  	t.stop()
-		  	d3.select(".countdown_clock").html(150.0)
+		  	// d3.select("#time").html(150.0)
 		  };
 		}, 150);
 
