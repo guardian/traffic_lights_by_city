@@ -11,12 +11,48 @@
 	margin-bottom:5px; 
 }
 
+
+ a {
+	color: #005689;
+cursor: pointer;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
 .row:after {
 	content: " "; /* Older browser do not support empty content */
 	visibility: hidden;
 	display: block;
 	height: 0;
 	clear: both;
+}
+
+.chartTitle {
+	font-size:1.25em;
+	line-height:1.375em;
+	padding-bottom:.45em;
+	font-weight:600;
+	color:#000;
+}
+
+.subTitle {
+	font-size:1em;
+	color:#808080;
+	margin-bottom:10px;
+	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+}
+
+.footer {
+	border-top:1px solid #dcdcdc;	
+	margin-top:5px;
+	padding-top:5px;
+	font-size: 12px;
+	line-height: 16px;
+	color: rgb(118, 118, 118);
+	font-family: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
 
 .traffic_lights_container {
@@ -35,13 +71,13 @@
 	float: left;
 	font-family:'Guardian Text Sans Web', 'Agate Sans', sans-serif;
 	font-size: 14px;
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 #time {
 	float: left;
 	margin-top: 14px;
-    margin-left: 28px;
+    margin-left: 22px;
 }
 
 .clock {
@@ -68,20 +104,20 @@
 
 .traffic_light_container {
 	position: relative;
-
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
 	border-bottom: 1px solid black;
 	padding-bottom: 5px;
+	width: calc(20% - 10px);
 
-	@include mq($until: mobileLandscape) {
+/*	@include mq($until: mobileLandscape) {
 		width: calc(50% - 15px);
 	}
 
 	@include mq($from: mobileLandscape) {
 		width: calc(20% - 10px);
-	}
+	}*/
 }
 
 
@@ -115,6 +151,20 @@
 	margin-top: 5px;
 	clear: both;
 }
+
+
+@media (max-width: 400px) {
+	.city_title_box, .city_time_box {
+	font-size: 10px;
+	}
+}
+
+@media (max-width: 350px) {
+	.city_title_box {
+	font-size: 8px;
+	}
+}
+
 
 .traffic_container {
 	width: 100%;
@@ -224,6 +274,7 @@
 }
 
 #button {
+	margin-left:10px;
 	z-index: 1;
 	text-align: center;
 	box-sizing: border-box;
